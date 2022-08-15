@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Text(
+    'Bem vindo ao Bytebank',
+    textDirection: TextDirection.ltr,
+  ));
 }
 
 class MyApp extends StatelessWidget {
