@@ -1,13 +1,11 @@
 package br.com.alura.technews.ui.recyclerview.adapter
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.alura.technews.R
+import br.com.alura.technews.databinding.ItemNoticiaBinding
 import br.com.alura.technews.model.Noticia
-import kotlinx.android.synthetic.main.item_noticia.view.*
 
 class ListaNoticiasAdapter(
     private val context: Context,
@@ -15,16 +13,13 @@ class ListaNoticiasAdapter(
     var quandoItemClicado: (noticia: Noticia) -> Unit = {}
 ) : RecyclerView.Adapter<ListaNoticiasAdapter.ViewHolder>() {
 
+    private lateinit var binding: ItemNoticiaBinding
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val viewCriada = LayoutInflater.from(context)
-            .inflate(
-                R.layout.item_noticia,
-                parent, false
-            )
-        return ViewHolder(viewCriada)
+        return ViewHolder(binding.root)
     }
 
     override fun getItemCount() = noticias.size
@@ -56,8 +51,8 @@ class ListaNoticiasAdapter(
 
         fun vincula(noticia: Noticia) {
             this.noticia = noticia
-            itemView.item_noticia_titulo.text = noticia.titulo
-            itemView.item_noticia_texto.text = noticia.texto
+            binding.itemNewsTitle.text = noticia.titulo
+            binding.itemNewsDescription.text = noticia.texto
         }
 
     }
