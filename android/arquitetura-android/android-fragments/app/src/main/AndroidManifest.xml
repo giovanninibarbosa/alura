@@ -17,7 +17,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:name=".AppApplication">
         <activity android:name=".ui.activity.FormularioNoticiaActivity" />
-        <activity android:name=".ui.activity.NoticiasActivity">
+        <activity android:name=".ui.activity.NoticiasActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

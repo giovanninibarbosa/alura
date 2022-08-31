@@ -52,12 +52,12 @@ class VisualizaNoticiaFragment : Fragment() {
         activity?.title = TITULO_APPBAR
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater?.inflate(R.menu.visualiza_noticia_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.visualiza_noticia_menu_edita -> {
                 viewModel.noticiaEncontrada.value?.let(quandoSelecionaMenuEdicao)
