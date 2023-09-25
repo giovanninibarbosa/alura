@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +22,34 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Tasks Control"),
         ),
-        body: Container(
+        body: ListView(
+          children: [
+            Task("Task 1", 24),
+            Task("Task 2", 24),
+            Task("Task 3", 24),
+            Task("Task 4", 24),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+}
+
+class Task extends StatelessWidget {
+  final String task;
+  final double textSize;
+
+  const Task(this.task, this.textSize, {super.key});
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
           child: Stack(
             children: [
               Container(
@@ -38,18 +67,18 @@ class MyApp extends StatelessWidget {
                       width: 72,
                       height: 100,
                     ),
-                    Text("Data Info"),
-                    ElevatedButton(onPressed: () {}, child: Icon(Icons.arrow_drop_up))
+                    Text(
+                      task,
+                      style: TextStyle(fontSize: textSize),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    ElevatedButton(
+                        onPressed: () {}, child: Icon(Icons.arrow_drop_up))
                   ],
                 ),
               )
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-        ),
-      ),
-    );
+        ));
   }
 }
