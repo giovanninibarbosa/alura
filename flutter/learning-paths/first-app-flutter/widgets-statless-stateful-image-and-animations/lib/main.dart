@@ -11,38 +11,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FWSSII',
+      title: 'Tasks',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
         useMaterial3: true,
       ),
-      home: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            color: Colors.amberAccent,
-            width: 100,
-            height: 100,
-          ),
-          Container(
-            color: Colors.lightBlue,
-            width: 50,
-            height: 50,
-          ),
-          Column(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Tasks Control"),
+        ),
+        body: Container(
+          child: Stack(
             children: [
               Container(
-                  height: 280,
-                  width: 280,
-                  child: Text(
-                    'Oi',
-                    style: TextStyle(
-                        color: Colors.deepPurpleAccent, fontSize: 100),
-                    textAlign: TextAlign.center,
-                  ))
+                color: Colors.blue,
+                height: 140,
+              ),
+              Container(
+                color: Colors.white,
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      color: Colors.black26,
+                      width: 72,
+                      height: 100,
+                    ),
+                    Text("Data Info"),
+                    ElevatedButton(onPressed: () {}, child: Icon(Icons.arrow_drop_up))
+                  ],
+                ),
+              )
             ],
-          )
-        ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+        ),
       ),
     );
   }
